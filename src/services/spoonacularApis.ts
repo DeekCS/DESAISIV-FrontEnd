@@ -36,4 +36,22 @@ const getRecipes = async (
   }
 }
 
-export { getRecipes }
+const getRecipeById = async (id: number): Promise<Recipe | undefined> => {
+  try {
+    const response: AxiosResponse<Recipe> = await axios.get(
+      `${baseUrl}/recipes/${id}/information`,
+      {
+        params: {
+          apiKey,
+        },
+      },
+    )
+
+    return response.data
+  } catch (e) {
+    console.error(e)
+    return undefined
+  }
+}
+
+export { getRecipes, getRecipeById }
