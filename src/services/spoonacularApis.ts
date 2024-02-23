@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 
-const apiKey: string = 'a519422303d44e07ae53123b25ac81f1'
+const apiKey: string = '06128fea1e344fe19ac5159cedd2694a'
 const baseUrl: string = 'https://api.spoonacular.com'
 
 interface Recipe {
