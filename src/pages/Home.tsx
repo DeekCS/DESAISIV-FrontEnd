@@ -15,6 +15,7 @@ const Home = () => {
       <div className="flex justify-center flex-row">
         {categories.map((category) => (
           <CategoryButtons
+            key={category.id}
             category={category}
             onClick={handleCategoryClick}
             isSelected={selectedCategory.name === category.name}
