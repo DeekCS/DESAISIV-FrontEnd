@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 
-const apiKey: string = 'f57b6c31f0b14b1486fcdd2f577491f5'
+const apiKey: string = 'a519422303d44e07ae53123b25ac81f1'
 const baseUrl: string = 'https://api.spoonacular.com'
 
 interface Recipe {
@@ -8,18 +8,31 @@ interface Recipe {
   title: string
   image: string
   imageType: string
+  totalResults: number
 }
 
-const getRecipes = async (): Promise<Recipe[] | undefined> => {
+const getRecipes = async (
+  query: string,
+  category: string,
+): Promise<Recipe[] | undefined> => {
   try {
     const response: AxiosResponse<{ results: Recipe[] }> = await axios.get(
-      `${baseUrl}/recipes/complexSearch?apiKey=${apiKey}&number=10&cuisine=italian`,
+      `${baseUrl}/recipes/complexSearch`,
+      {
+        params: {
+          apiKey,
+          number: 10,
+          cuisine: category,
+          query,
+        },
+      },
     )
 
-    console.log(response.data)
-    return response.data.results
+    return response.data.results || []
   } catch (e) {
     console.error(e)
+    // Return an empty array or handle the error as needed
+    return undefined
   }
 }
 
