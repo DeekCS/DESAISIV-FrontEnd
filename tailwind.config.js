@@ -5,8 +5,16 @@ export default {
     extend: {
       backgroundColor: {
         primary: '#F4F2ED',
-        secondary: '#F3F4F6',
-        tertiary: '#F3F4F6',
+        secondary: '#43C387',
+        tertiary: '#E9F9F0',
+      },
+      textColor: {
+        primary: '#3F3F3F',
+        secondary: '#43C387',
+        tertiary: '#E9F9F0',
+      },
+      fontFamily: {
+        playfair: ['Playfair Display', 'serif'],
       },
     },
   },
