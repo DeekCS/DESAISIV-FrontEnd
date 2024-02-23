@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useSearch } from '../context/SearchContext'
+import { useNavigate } from 'react-router-dom'
 
 interface SearchBarProps {
   placeholder: string
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
+  const navigate = useNavigate()
   const { setSearchQuery } = useSearch()
   const [query, setQuery] = useState('')
 
@@ -16,6 +18,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
 
   const handleSearch = () => {
     setSearchQuery(query)
+    navigate('/home')
+  }
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearch()
+    }
   }
 
   return (
@@ -26,6 +35,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
           placeholder={placeholder}
           value={query}
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           className="py-2 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         {/* Search Icon */}
