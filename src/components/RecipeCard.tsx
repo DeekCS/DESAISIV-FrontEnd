@@ -9,13 +9,18 @@ interface RecipeCardProps {
     title: string
   }
   selectedCategory: string
+  onNavigate?: () => void
 }
 
 const RecipeCard: React.FC<RecipeCardProps> = ({
   recipe,
   selectedCategory,
+  onNavigate,
 }) => (
-  <Card className="-mt-8 sm:-mt-14 md:-mt-16 lg:-mt-20 xl:-mt-24 2xl:-mt-24">
+  <Card
+    className="-mt-8 sm:-mt-14 md:-mt-16 lg:-mt-20 xl:-mt-24 2xl:-mt-24"
+    onClick={onNavigate}
+  >
     {/* Recipe Image */}
     <div className="-mt-8 sm:-mt-14 md:-mt-16 lg:-mt-20 xl:-mt-24 2xl:-mt-24">
       <Image src={recipe.image} />
