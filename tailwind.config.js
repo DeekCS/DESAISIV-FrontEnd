@@ -7,6 +7,7 @@ export default {
         primary: '#F4F2ED',
         secondary: '#43C387',
         tertiary: '#E9F9F0',
+        card: '#FEFEFD',
       },
       textColor: {
         primary: '#3F3F3F',
