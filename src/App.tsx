@@ -11,12 +11,13 @@ import { SearchProvider } from './context/SearchContext'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { TotalResultsProvider } from './context/TotalResultsContext'
+import Recipe from './pages/Recipe'
 
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 60 * 1000,
+        refetchOnWindowFocus: false,
       },
     },
   })
@@ -38,6 +39,7 @@ function App() {
               >
                 <Route index element={<Navigate replace to="home" />} />
                 <Route path="home" element={<Home />} />
+                <Route path="/details/:id" element={<Recipe />} />
               </Route>
 
               <Route path="*" element={<PageNotFound />} />
