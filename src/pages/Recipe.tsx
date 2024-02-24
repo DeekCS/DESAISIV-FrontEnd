@@ -1,44 +1,15 @@
 import React, { useState } from 'react'
 import Button from '../ui/Button'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { useRecipe } from '../hooks/useRecipe'
 import Spinner from '../ui/Spinner'
+import Ingredients from '../components/Ingredients'
+import Instructions from '../components/Instructions'
 
 const Recipe: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'instructions' | 'ingredients'>(
-    'instructions',
-  )
-
   const { isLoading, recipe } = useRecipe()
 
-  const renderIngredients = () => (
-    <ul className="text-left w-full font-light text-gray-700 text-sm md:text-base lg:text-lg xl:text-xl">
-      {recipe?.extendedIngredients.map((ingredient) => (
-        <li key={ingredient.id} className="flex items-center mb-2">
-          <FontAwesomeIcon icon={faCheck} className="mr-2 text-green-500" />
-          <span className="truncate">{ingredient.original}</span>
-        </li>
-      ))}
-    </ul>
-  )
-
-  const renderInstructions = () => (
-    <div className="text-left w-full">
-      <h3
-        className="text-left w-full font-bold text-gray-700 text-lg md:text-xl lg:text-2xl xl:text-3xl
-        mb-4"
-      >
-        Instructions
-      </h3>
-      <p
-        className="text-left w-full font-light text-gray-700 text-sm md:text-base lg:text-lg xl:text-xl leading-7
-          overflow-y-auto h-96
-      
-      "
-        dangerouslySetInnerHTML={{ __html: recipe?.instructions || '' }}
-      ></p>
-    </div>
+  const [activeTab, setActiveTab] = useState<'instructions' | 'ingredients'>(
+    'instructions',
   )
 
   return (
@@ -99,9 +70,11 @@ const Recipe: React.FC = () => {
                 </Button>
               </div>
               <div className="w-full mt-10">
-                {activeTab === 'ingredients'
-                  ? renderIngredients()
-                  : renderInstructions()}
+                {activeTab === 'ingredients' ? (
+                  <Ingredients ingredients={recipe.extendedIngredients} />
+                ) : (
+                  <Instructions instructions={recipe.instructions} />
+                )}
               </div>
             </div>
           </div>
