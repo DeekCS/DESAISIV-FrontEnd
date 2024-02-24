@@ -9,13 +9,11 @@ const Home = () => {
   const { recipes, isLoading } = useRecipes(searchQuery, selectedCategory.name)
 
   return (
-    <>
-      <RecipeCards
-        recipes={recipes!}
-        selectedCategory={selectedCategory}
-        isLoading={isLoading}
-      />
-    </>
+    <RecipeCards
+      recipes={recipes!}
+      selectedCategory={selectedCategory}
+      isLoading={isLoading}
+    />
   )
 }
 
