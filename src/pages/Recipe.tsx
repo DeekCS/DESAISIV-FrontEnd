@@ -44,7 +44,11 @@ const Recipe: React.FC = () => {
     <>
       {isLoading && <Spinner />}
       {recipe && (
-        <div className="flex flex-col w-full">
+        <div
+          className="flex flex-col w-full
+          h-screen
+        "
+        >
           <h1 className="w-full font-bold text-gray-700 text-lg md:text-xl lg:text-2xl xl:text-3xl">
             {recipe.title}
           </h1>
