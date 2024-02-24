@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 import { Recipe } from '../utils/types'
 
-const apiKey: string = '31eba22ff8524ef1b164cd9fe83b2322'
+const apiKey: string = '06128fea1e344fe19ac5159cedd2694a'
 const baseUrl: string = 'https://api.spoonacular.com'
 
 const getRecipes = async (
