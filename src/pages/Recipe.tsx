@@ -33,6 +33,7 @@ const Recipe: React.FC = () => {
       </h3>
       <p
         className="text-left w-full font-light text-gray-700 text-sm md:text-base lg:text-lg xl:text-xl leading-7
+          overflow-y-auto h-96
       
       "
         dangerouslySetInnerHTML={{ __html: recipe?.instructions || '' }}
