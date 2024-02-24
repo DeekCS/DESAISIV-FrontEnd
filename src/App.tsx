@@ -11,6 +11,7 @@ import { SearchProvider } from './context/SearchContext'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { TotalResultsProvider } from './context/TotalResultsContext'
+import { CategoryProvider } from './context/CategoryContext'
 import Recipe from './pages/Recipe'
 
 function App() {
@@ -29,21 +30,23 @@ function App() {
 
         <SearchProvider>
           <TotalResultsProvider>
-            <Routes>
-              <Route
-                element={
-                  <TotalResultsProvider>
-                    <AppLayout />
-                  </TotalResultsProvider>
-                }
-              >
-                <Route index element={<Navigate replace to="home" />} />
-                <Route path="home" element={<Home />} />
-                <Route path="/details/:id" element={<Recipe />} />
-              </Route>
+            <CategoryProvider>
+              <Routes>
+                <Route
+                  element={
+                    <TotalResultsProvider>
+                      <AppLayout />
+                    </TotalResultsProvider>
+                  }
+                >
+                  <Route index element={<Navigate replace to="home" />} />
+                  <Route path="home" element={<Home />} />
+                  <Route path="/details/:id" element={<Recipe />} />
+                </Route>
 
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
+                <Route path="*" element={<PageNotFound />} />
+              </Routes>
+            </CategoryProvider>
           </TotalResultsProvider>
         </SearchProvider>
       </QueryClientProvider>
