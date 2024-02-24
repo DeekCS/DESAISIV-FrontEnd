@@ -18,9 +18,11 @@ const Button: FC<ButtonProps> = ({
       : isSelected
         ? `bg-black border-2 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:bg-black hover:text-white hover:scale-105
         ml-2 sm:ml-0 md:ml-0 lg:ml-0 xl:ml-2 2xl:ml-2 cursor-pointer
+        mb-4
         `
         : `border-2 text-gray-700 font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:bg-black hover:text-white hover:scale-105
         ml-2 sm:ml-0 md:ml-0 lg:ml-0 xl:ml-2 2xl:ml-2 cursor-pointer
+        mb-4
         `
   }`
 
