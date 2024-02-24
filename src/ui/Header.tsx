@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTotalResults } from '../context/TotalResultsContext'
+import HeroText from './HeroText'
 
 const Header: React.FC = () => {
   const { totalResults } = useTotalResults()
@@ -10,8 +11,8 @@ const Header: React.FC = () => {
       mb-5 sm:mb-10"
     >
       <div className="flex items-center mb-2 sm:mb-0">
-        <h1 className="font-medium font-playfair text-lg sm:text-3xl tracking-wider">
-          Learn, Cook, & Eat your food!
+        <h1 className="font-bold font-playfair text-lg sm:text-3xl tracking-wider">
+          <HeroText />
         </h1>
       </div>
       <div className="mt-4 sm:mt-0 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
