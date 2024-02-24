@@ -27,7 +27,7 @@ const NumberLink: React.FC<{ value: number; label: string }> = ({
 }) => {
   return (
     <div className="flex flex-col text-gray-500 text-center sm:text-left">
-      <h2 className="font-bold font-playfair text-3xl tracking-wider text-center sm:text-left text-secondary">
+      <h2 className="font-bold font-playfair text-5xl tracking-wider text-center sm:text-left text-secondary">
         {value}
       </h2>
       <h3 className="hidden sm:inline">{label}</h3>
